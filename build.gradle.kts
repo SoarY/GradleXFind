@@ -4,11 +4,10 @@ plugins {
     alias(libs.plugins.kotlin.android) apply false
     alias(libs.plugins.kotlin.compose) apply false
     alias(libs.plugins.android.library) apply false
-    //id("com.soarsy.gradlefind.dependencies")
 }
 
-//buildscript {
-//    dependencies {
-//        classpath("com.soarsy.gradlefind:dependencies:1.0.0")
-//    }
-//}
+buildscript {
+    dependencies {
+        classpath("com.github.SoarY.GradleXFind:GradleFind:1.0.0")
+    }
+}

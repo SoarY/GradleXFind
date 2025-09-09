@@ -2,10 +2,8 @@ plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.kotlin.compose)
-    //id("com.soarsy.gradlefind.dependencies") version "1.0.0"
 }
-
-//apply(plugin = "com.soarsy.gradlefind.dependencies")
+apply(plugin = "com.soarsy.gradlefind.dependencies")
 
 android {
     namespace = "com.example.myapplication5"
@@ -20,10 +18,10 @@ android {
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
 
-//        ndk{
-//            // 打包生成的 APK 文件指挥包含 ARM 指令集的动态库
-//            abiFilters.addAll(listOf("armeabi-v7a", "arm64-v8a"))
-//        }
+        ndk{
+            // 打包生成的 APK 文件指挥包含 ARM 指令集的动态库
+            abiFilters.addAll(listOf("armeabi-v7a", "arm64-v8a"))
+        }
     }
 
     buildTypes {
@@ -47,10 +45,10 @@ android {
     }
 }
 
-//// Kotlin DSL 的正确配置方式
-//configure<com.soarsy.gradlefind.DependenciesPluginExtension> {
-//    getEnable().set(true)
-//}
+// Kotlin DSL 的正确配置方式
+configure<com.soarsy.gradlefind.DependenciesPluginExtension> {
+    getEnable().set(true)
+}
 
 dependencies {
 

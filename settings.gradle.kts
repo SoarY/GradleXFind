@@ -1,6 +1,7 @@
 pluginManagement {
     repositories {
-        maven { setUrl("https://maven.aliyun.com/repository/public") }
+        maven("https://jitpack.io")
+        maven("https://maven.aliyun.com/repository/public")
         google {
             content {
                 includeGroupByRegex("com\\.android.*")
@@ -15,7 +16,8 @@ pluginManagement {
 dependencyResolutionManagement {
     repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
     repositories {
-        maven { setUrl("https://maven.aliyun.com/repository/public") }
+        maven("https://jitpack.io")
+        maven("https://maven.aliyun.com/repository/public")
         google()
         mavenCentral()
     }
