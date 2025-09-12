@@ -2,8 +2,9 @@ plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.kotlin.compose)
+    //id("com.soarsy.gradlefind.dependencies")
 }
-apply(plugin = "com.soarsy.gradlefind.dependencies")
+//apply(plugin = "com.soarsy.gradlefind.dependencies")
 
 android {
     namespace = "com.example.myapplication5"
@@ -45,10 +46,15 @@ android {
     }
 }
 
-// Kotlin DSL 的正确配置方式
-configure<com.soarsy.gradlefind.DependenciesPluginExtension> {
-    getEnable().set(true)
-}
+//// Kotlin DSL 的正确配置方式
+//configure<com.soarsy.gradlefind.DependenciesPluginExtension> {
+//    getEnable().set(true)
+//}
+
+//GradleXFind {
+//    printDependencies = true
+//    analysisSo = true
+//}
 
 dependencies {
 
