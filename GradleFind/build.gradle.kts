@@ -8,7 +8,7 @@ plugins {
 gradlePlugin {
     plugins {
         create("DependenciesPlugin") {
-            id = "com.soarsy.gradlefind.dependencies"
+            id = "com.soarsy.plugin.gradlexfind"
             implementationClass = "com.soarsy.gradlefind.DependenciesPlugin"
         }
     }
@@ -20,14 +20,14 @@ dependencies {
 }
 
 
-//group = "com.soarsy.gradlefind"
-//version = "1.2.0"
+//group = "com.soarsy.plugin"
+//version = "1.4.0"
 //
 //publishing {
 //    publications {
 //        create<MavenPublication>("maven") {
 //            groupId = project.group.toString()
-//            artifactId = "dependencies"
+//            artifactId = "gradlexfind"
 //            version = project.version.toString()
 //
 //            from(components["java"])

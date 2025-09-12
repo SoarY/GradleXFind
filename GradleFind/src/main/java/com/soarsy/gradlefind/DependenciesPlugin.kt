@@ -1,15 +1,11 @@
 package com.soarsy.gradlefind
 
 import com.android.build.gradle.AppExtension
-import com.android.build.gradle.api.ApplicationVariant
 import org.gradle.api.Plugin
 import org.gradle.api.Project
-import org.gradle.api.logging.Logger
 import org.gradle.api.logging.Logging
+import java.nio.file.Files
 import java.util.jar.JarFile
-
-
-
 
 /**
  * NAME：YONG_
@@ -38,6 +34,11 @@ class DependenciesPlugin: Plugin<Project> {
             if (extension.analysisSo){
                 logger.lifecycle("$TAG so print>>>>>>>>")
                 doAnalysisSo(project)
+            }
+
+            if (!extension.permissionsToRemove.isEmpty()){
+                logger.lifecycle("$TAG permissionsToRemove>>>>>>>>")
+                permissionsToRemove(project, extension.permissionsToRemove)
             }
         }
 
@@ -108,13 +109,30 @@ class DependenciesPlugin: Plugin<Project> {
         }
     }
 
-    private fun processVariant(
-        logger: Logger,
-        it: ApplicationVariant,
-        project: Project,
-        androidLibs: ArrayList<String>,
-        otherLibs: ArrayList<String>
-    ) {
+    private fun permissionsToRemove(project: Project, permissionsToRemove: List<String>) {
+        if (permissionsToRemove.isEmpty())
+            return
+        val appExtension = project.extensions.getByType(AppExtension::class.java)
+        appExtension.applicationVariants.all {
+            it.outputs.all {output->
+                output.processManifest.doLast {
+                    runCatching {
+                        val manifestFile = output.processResourcesProvider.get().manifestFile
+                        var manifestContent = Files.readString(manifestFile.toPath())
+                        permissionsToRemove.forEach {item->
+                            logger.lifecycle(TAG + "permission = " + item)
+                            manifestContent=manifestContent.replace(item,"android.permission.NULL_PERMISSION")
+                        }
+                        Files.writeString(manifestFile.toPath(),manifestContent)
+                    }.onSuccess { response ->
+                    }.onFailure { exception ->
+                        exception.printStackTrace()
+                        return@doLast
+                    }
+                }
+            }
+        }
 
     }
+
 }
