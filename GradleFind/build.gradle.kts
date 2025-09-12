@@ -2,7 +2,7 @@ plugins {
     id("java-gradle-plugin")
     id("org.jetbrains.kotlin.jvm")
 
-    id("maven-publish")
+//    id("maven-publish")
 }
 
 gradlePlugin {
@@ -20,23 +20,23 @@ dependencies {
 }
 
 
-group = "com.soarsy.gradlefind"
-version = "1.2.0"
-
-publishing {
-    publications {
-        create<MavenPublication>("maven") {
-            groupId = project.group.toString()
-            artifactId = "dependencies"
-            version = project.version.toString()
-
-            from(components["java"])
-        }
-    }
-    repositories {
-        maven {
-            url = uri(layout.buildDirectory.dir("maven-repo"))
-        }
-    }
-}
+//group = "com.soarsy.gradlefind"
+//version = "1.2.0"
+//
+//publishing {
+//    publications {
+//        create<MavenPublication>("maven") {
+//            groupId = project.group.toString()
+//            artifactId = "dependencies"
+//            version = project.version.toString()
+//
+//            from(components["java"])
+//        }
+//    }
+//    repositories {
+//        maven {
+//            url = uri(layout.buildDirectory.dir("maven-repo"))
+//        }
+//    }
+//}
 
