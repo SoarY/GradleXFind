@@ -8,7 +8,7 @@ plugins {
 
 buildscript {
     dependencies {
-        classpath("com.github.SoarY.GradleXFind:GradleFind:1.4.0")
+//        classpath("com.github.SoarY.GradleXFind:GradleFind:1.4.0")
 //        classpath("com.soarsy.plugin:gradlexfind:1.4.0")
     }
 }

@@ -2,7 +2,7 @@ plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.kotlin.compose)
-    id("com.soarsy.plugin.gradlexfind")
+    //id("com.soarsy.plugin.gradlexfind")
 }
 
 android {
@@ -45,14 +45,14 @@ android {
     }
 }
 
-GradleXFind {
-    printDependencies = true
-    analysisSo = true
-    permissionsToRemove = listOf(
-        "android.permission.RECORD_AUDIO",
-        "android.permission.WRITE_EXTERNAL_STORAGE"
-    )
-}
+//GradleXFind {
+//    printDependencies = true
+//    analysisSo = true
+//    permissionsToRemove = listOf(
+//        "android.permission.RECORD_AUDIO",
+//        "android.permission.WRITE_EXTERNAL_STORAGE"
+//    )
+//}
 
 dependencies {
 
